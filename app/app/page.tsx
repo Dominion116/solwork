@@ -11,7 +11,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+            <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Decentralized freelance
                 <span className="block bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -24,14 +24,14 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
                   href="/jobs"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-semibold hover:bg-primary/90 transition-colors"
                 >
                   Browse Jobs
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link 
                   href="/dashboard/client"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border bg-card hover:bg-accent transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border-2 border-primary/30 bg-transparent text-foreground hover:bg-primary/10 transition-colors"
                 >
                   Post a Job
                 </Link>
@@ -173,7 +173,7 @@ export default function Home() {
               Connect your wallet and join the decentralized future of work. No middlemen, no hidden fees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <WalletMultiButton className="bg-primary! hover:bg-primary/90! rounded-lg! h-12! px-8! text-base!" />
+              <WalletMultiButton className="bg-primary! hover:bg-primary/90! rounded-full! h-12! px-10! text-base! font-semibold!" />
               <Link 
                 href="/jobs"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"

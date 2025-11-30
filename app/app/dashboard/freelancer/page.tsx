@@ -128,7 +128,7 @@ export default function FreelancerDashboard() {
                   </p>
                   <Link 
                     href="/jobs"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors font-semibold shadow-lg shadow-primary/50"
                   >
                     Browse Jobs
                     <ArrowUpRight className="h-4 w-4" />
@@ -202,7 +202,7 @@ export default function FreelancerDashboard() {
                   <p className="font-semibold">2 hours</p>
                 </div>
               </div>
-              <button className="w-full px-4 py-2 border border-border rounded-lg hover:bg-accent transition-colors">
+              <button className="w-full px-6 py-2.5 border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
                 Edit Profile
               </button>
             </div>
@@ -229,14 +229,14 @@ export default function FreelancerDashboard() {
               <div className="space-y-2">
                 <Link 
                   href="/jobs"
-                  className="block w-full px-4 py-2 text-left border border-border rounded-lg hover:bg-accent transition-colors"
+                  className="block w-full px-6 py-2.5 text-center border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium"
                 >
                   Browse Jobs
                 </Link>
-                <button className="w-full px-4 py-2 text-left border border-border rounded-lg hover:bg-accent transition-colors">
+                <button className="w-full px-6 py-2.5 text-center border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
                   Withdraw Earnings
                 </button>
-                <button className="w-full px-4 py-2 text-left border border-border rounded-lg hover:bg-accent transition-colors">
+                <button className="w-full px-6 py-2.5 text-center border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
                   View Statistics
                 </button>
               </div>

@@ -49,10 +49,10 @@ export default function JobsPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
+                className={`px-6 py-2.5 rounded-full font-medium transition-colors whitespace-nowrap ${
                   selectedCategory === category
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-card border border-border hover:bg-accent'
+                    ? 'bg-primary text-white shadow-lg shadow-primary/50'
+                    : 'bg-card border border-border hover:bg-primary/10'
                 }`}
               >
                 {category === 'all' ? 'All Jobs' : category}

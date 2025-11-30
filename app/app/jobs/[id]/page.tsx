@@ -201,8 +201,8 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                 <p className="text-sm text-muted-foreground">
                   Connect your wallet to submit a proposal for this job
                 </p>
-                <WalletMultiButton className="w-full! bg-primary! hover:bg-primary/90! rounded-lg! h-10!" />
-                <button className="w-full px-4 py-2 border border-border rounded-lg hover:bg-accent transition-colors">
+                <WalletMultiButton className="w-full! bg-primary! hover:bg-primary/90! rounded-full! h-11! font-semibold!" />
+                <button className="w-full px-6 py-2.5 border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
                   Submit Proposal
                 </button>
               </div>

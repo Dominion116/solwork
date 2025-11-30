@@ -30,7 +30,7 @@ export default function ClientDashboard() {
           </div>
           <button 
             onClick={() => setShowCreateJob(true)}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors font-semibold shadow-lg shadow-primary/50"
           >
             <Plus className="h-5 w-5" />
             Post a Job
@@ -160,7 +160,7 @@ export default function ClientDashboard() {
                   </p>
                   <button 
                     onClick={() => setShowCreateJob(true)}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors font-semibold shadow-lg shadow-primary/50"
                   >
                     <Plus className="h-4 w-4" />
                     Post a Job
@@ -229,7 +229,7 @@ export default function ClientDashboard() {
                   <p className="font-semibold text-green-400">Yes ✓</p>
                 </div>
               </div>
-              <button className="w-full px-4 py-2 border border-border rounded-lg hover:bg-accent transition-colors">
+              <button className="w-full px-6 py-2.5 border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
                 Edit Profile
               </button>
             </div>
@@ -255,20 +255,20 @@ export default function ClientDashboard() {
               <div className="space-y-2">
                 <button 
                   onClick={() => setShowCreateJob(true)}
-                  className="w-full px-4 py-2 text-left bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                  className="w-full px-6 py-2.5 text-center bg-primary text-white rounded-full hover:bg-primary/90 transition-colors font-semibold shadow-lg shadow-primary/50"
                 >
                   Post New Job
                 </button>
                 <Link 
                   href="/jobs"
-                  className="block w-full px-4 py-2 text-left border border-border rounded-lg hover:bg-accent transition-colors"
+                  className="block w-full px-6 py-2.5 text-center border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium"
                 >
                   Browse Freelancers
                 </Link>
-                <button className="w-full px-4 py-2 text-left border border-border rounded-lg hover:bg-accent transition-colors">
+                <button className="w-full px-6 py-2.5 text-center border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
                   View Contracts
                 </button>
-                <button className="w-full px-4 py-2 text-left border border-border rounded-lg hover:bg-accent transition-colors">
+                <button className="w-full px-6 py-2.5 text-center border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
                   Payment History
                 </button>
               </div>
@@ -305,10 +305,10 @@ export default function ClientDashboard() {
                 </select>
               </div>
               <div className="flex gap-4 pt-4">
-                <button className="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                <button className="flex-1 px-6 py-2.5 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors font-semibold shadow-lg shadow-primary/50">
                   Create Job
                 </button>
-                <button onClick={() => setShowCreateJob(false)} className="flex-1 px-4 py-2 border border-border rounded-lg hover:bg-accent transition-colors">
+                <button onClick={() => setShowCreateJob(false)} className="flex-1 px-6 py-2.5 border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
                   Cancel
                 </button>
               </div>
