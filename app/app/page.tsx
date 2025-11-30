@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { ArrowRight, Shield, Zap, Globe, CheckCircle, Star } from 'lucide-react';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 export default function Home() {
   return (
@@ -173,7 +172,7 @@ export default function Home() {
               Connect your wallet and join the decentralized future of work. No middlemen, no hidden fees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <WalletMultiButton className="bg-primary! hover:bg-primary/90! rounded-full! h-12! px-10! text-base! font-semibold!" />
+              <appkit-button />
               <Link 
                 href="/jobs"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"

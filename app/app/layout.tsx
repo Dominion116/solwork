@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "@solana/wallet-adapter-react-ui/styles.css";
-import { WalletContextProvider } from "@/contexts/WalletContextProvider";
+import { AppKitProvider } from "@/contexts/AppKitProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -25,13 +24,13 @@ export default function RootLayout({
       <body
         className="antialiased min-h-screen flex flex-col font-sans"
       >
-        <WalletContextProvider>
+        <AppKitProvider>
           <Header />
           <main className="flex-1 pt-16">
             {children}
           </main>
           <Footer />
-        </WalletContextProvider>
+        </AppKitProvider>
       </body>
     </html>
   );

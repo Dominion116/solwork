@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { mockJobs } from '@/lib/mockData';
-import { Briefcase, DollarSign, Users, TrendingUp, Plus, Clock, CheckCircle, ArrowUpRight } from 'lucide-react';
+import { Briefcase, DollarSign, Users, TrendingUp, Plus, Clock, CheckCircle } from 'lucide-react';
 
 export default function ClientDashboard() {
   const [showCreateJob, setShowCreateJob] = useState(false);
