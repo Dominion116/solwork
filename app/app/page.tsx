@@ -1,65 +1,191 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
+import { ArrowRight, Shield, Zap, Globe, CheckCircle, Star } from 'lucide-react';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-pink-500/10" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                Decentralized freelance
+                <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  marketplace on Solana
+                </span>
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-xl">
+                Connect with top freelancers or find your next project. Secure escrow, milestone-based payments, and transparent ratings powered by blockchain.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link 
+                  href="/jobs"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+                >
+                  Browse Jobs
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link 
+                  href="/dashboard/client"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border bg-card hover:bg-accent transition-colors"
+                >
+                  Post a Job
+                </Link>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl blur-3xl opacity-20" />
+              <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                    <Shield className="h-6 w-6 text-purple-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Secure Escrow</h3>
+                    <p className="text-sm text-muted-foreground">Funds locked until work approved</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                    <Zap className="h-6 w-6 text-purple-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Instant Payments</h3>
+                    <p className="text-sm text-muted-foreground">Fast, low-cost transactions</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                    <Globe className="h-6 w-6 text-purple-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Global Access</h3>
+                    <p className="text-sm text-muted-foreground">No borders, no restrictions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-24 bg-card/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Why choose SolWork?
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Built on Solana for speed, security, and transparency. A better way to work together.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative bg-card border border-border rounded-2xl p-8 space-y-4 h-full">
+                <div className="h-14 w-14 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                  <Shield className="h-7 w-7 text-purple-400" />
+                </div>
+                <h3 className="text-xl font-semibold">Trustless Escrow</h3>
+                <p className="text-muted-foreground">
+                  Smart contracts hold funds securely. Payments release only when milestones are approved, protecting both parties.
+                </p>
+              </div>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative bg-card border border-border rounded-2xl p-8 space-y-4 h-full">
+                <div className="h-14 w-14 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                  <CheckCircle className="h-7 w-7 text-purple-400" />
+                </div>
+                <h3 className="text-xl font-semibold">Milestone Payments</h3>
+                <p className="text-muted-foreground">
+                  Break projects into stages. Pay as you go, ensuring quality delivery at every step.
+                </p>
+              </div>
+            </div>
+
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative bg-card border border-border rounded-2xl p-8 space-y-4 h-full">
+                <div className="h-14 w-14 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                  <Star className="h-7 w-7 text-purple-400" />
+                </div>
+                <h3 className="text-xl font-semibold">Transparent Ratings</h3>
+                <p className="text-muted-foreground">
+                  On-chain reviews and ratings build reputation. Find trusted partners with verified track records.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-purple-500/10 via-card to-pink-500/10 border border-border/50 rounded-3xl p-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="text-center space-y-2">
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  $2.5M+
+                </div>
+                <div className="text-muted-foreground">Total Paid Out</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  1,200+
+                </div>
+                <div className="text-muted-foreground">Active Users</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  850+
+                </div>
+                <div className="text-muted-foreground">Jobs Completed</div>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  4.8/5
+                </div>
+                <div className="text-muted-foreground">Average Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-card/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center space-y-8">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Ready to start working on Solana?
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Connect your wallet and join the decentralized future of work. No middlemen, no hidden fees.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <WalletMultiButton className="!bg-primary hover:!bg-primary/90 !rounded-lg !h-12 !px-8 !text-base" />
+              <Link 
+                href="/jobs"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Browse available jobs
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
