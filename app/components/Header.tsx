@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { Briefcase } from 'lucide-react';
 
 export default function Header() {
@@ -30,7 +29,7 @@ export default function Header() {
             </Link>
           </nav>
 
-          <WalletMultiButton className="bg-primary! hover:bg-primary/90! rounded-full! h-10! px-6! text-sm! font-semibold! shadow-lg! shadow-primary/50!" />
+          <appkit-button />
         </div>
       </div>
     </header>

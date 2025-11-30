@@ -4,7 +4,6 @@ import { use, useState } from 'react';
 import Link from 'next/link';
 import { mockJobs, mockBids } from '@/lib/mockData';
 import { ArrowLeft, Clock, Users, CheckCircle, Calendar } from 'lucide-react';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 export default function JobDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -201,7 +200,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                 <p className="text-sm text-muted-foreground">
                   Connect your wallet to submit a proposal for this job
                 </p>
-                <WalletMultiButton className="w-full! bg-primary! hover:bg-primary/90! rounded-full! h-11! font-semibold!" />
+                <appkit-button />
                 <button className="w-full px-6 py-2.5 border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
                   Submit Proposal
                 </button>
