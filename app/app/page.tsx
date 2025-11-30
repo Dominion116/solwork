@@ -1,72 +1,53 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Shield, Zap, Globe, CheckCircle, Star } from 'lucide-react';
+import { ArrowRight, Shield, CheckCircle, Star, ArrowUpRight } from 'lucide-react';
+import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Decentralized freelance
-                <span className="block bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-                  marketplace on Solana
-                </span>
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-xl">
-                Connect with top freelancers or find your next project. Secure escrow, milestone-based payments, and transparent ratings powered by blockchain.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
-                  href="/jobs"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-semibold hover:bg-primary/90 transition-colors"
-                >
-                  Browse Jobs
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link 
-                  href="/dashboard/client"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border-2 border-primary/30 bg-transparent text-foreground hover:bg-primary/10 transition-colors"
-                >
-                  Post a Job
-                </Link>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-linear-to-br from-primary to-accent rounded-3xl blur-3xl opacity-20" />
-              <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Secure Escrow</h3>
-                    <p className="text-sm text-muted-foreground">Funds locked until work approved</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-xl bg-primary/20 flex items-center justify-center">
-                    <Zap className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Instant Payments</h3>
-                    <p className="text-sm text-muted-foreground">Fast, low-cost transactions</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                    <Globe className="h-6 w-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Global Access</h3>
-                    <p className="text-sm text-muted-foreground">No borders, no restrictions</p>
-                  </div>
-                </div>
-              </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <AnimatedGridPattern
+          numSquares={30}
+          maxOpacity={0.1}
+          duration={3}
+          className={cn(
+            "mask-[radial-gradient(500px_circle_at_center,white,transparent)]",
+            "inset-x-0 h-full skew-y-12"
+          )}
+        />
+        <div className="container relative z-10 mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto space-y-8">
+            <Badge
+              variant="secondary"
+              className="rounded-full py-1 border-border"
+              asChild
+            >
+              <Link href="/jobs">
+                Browse Available Jobs <ArrowUpRight className="ml-1 size-4" />
+              </Link>
+            </Badge>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-semibold tracking-tighter">
+              Decentralized Freelance{' '}
+              <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
+                Marketplace on Solana
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Connect with top freelancers or find your next project. Secure escrow, milestone-based payments, and transparent ratings powered by blockchain.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <Link 
+                href="/jobs"
+                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 rounded-full bg-primary text-white font-semibold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/50"
+              >
+                Get Started <ArrowUpRight className="h-5 w-5" />
+              </Link>
+              <appkit-button />
             </div>
           </div>
         </div>
