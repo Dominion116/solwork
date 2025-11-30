@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "@solana/wallet-adapter-react-ui/styles.css";
 import { WalletContextProvider } from "@/contexts/WalletContextProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
