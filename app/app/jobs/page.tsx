@@ -8,6 +8,7 @@ import { Search, Filter, Clock, DollarSign, Users, ChevronRight } from 'lucide-r
 export default function JobsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [currentDate] = useState(() => Date.now());
 
   const categories = ['all', 'Development', 'Design', 'Content Writing', 'Video Editing'];
 
@@ -43,7 +44,7 @@ export default function JobsPage() {
           </div>
 
           <div className="flex items-center gap-2 overflow-x-auto pb-2">
-            <Filter className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+            <Filter className="h-5 w-5 text-muted-foreground shrink-0" />
             {categories.map((category) => (
               <button
                 key={category}
@@ -85,7 +86,7 @@ export default function JobsPage() {
                       {job.description}
                     </p>
                   </div>
-                  <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                  <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -115,7 +116,7 @@ export default function JobsPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="h-4 w-4" />
-                    <span>Posted {Math.floor((Date.now() - job.createdAt.getTime()) / (1000 * 60 * 60 * 24))} days ago</span>
+                    <span>Posted {Math.floor((currentDate - job.createdAt.getTime()) / (1000 * 60 * 60 * 24))} days ago</span>
                   </div>
                   {job.deadline && (
                     <div className="flex items-center gap-2">
@@ -127,7 +128,7 @@ export default function JobsPage() {
 
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+                    <div className="h-8 w-8 rounded-full bg-linear-to-br from-purple-500 to-pink-500" />
                     <span className="text-sm text-muted-foreground">{job.client}</span>
                   </div>
                   <span className="text-sm px-3 py-1 bg-muted rounded-full">

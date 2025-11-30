@@ -30,7 +30,7 @@ export default function Header() {
             </Link>
           </nav>
 
-          <WalletMultiButton className="!bg-primary hover:!bg-primary/90 !rounded-lg !h-10 !px-4 !text-sm" />
+          <WalletMultiButton className="bg-primary! hover:bg-primary/90! rounded-lg! h-10! px-4! text-sm!" />
         </div>
       </div>
     </header>

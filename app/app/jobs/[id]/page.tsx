@@ -1,13 +1,14 @@
 'use client';
 
-import { use } from 'react';
+import { use, useState } from 'react';
 import Link from 'next/link';
 import { mockJobs, mockBids } from '@/lib/mockData';
-import { ArrowLeft, DollarSign, Clock, Users, CheckCircle, Calendar, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Clock, Users, CheckCircle, Calendar } from 'lucide-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 export default function JobDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
+  const [currentDate] = useState(() => Date.now());
   const job = mockJobs.find(j => j.id === id);
   const jobBids = mockBids.filter(b => b.jobId === id);
 
@@ -57,7 +58,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                 <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4" />
-                    <span>Posted {Math.floor((Date.now() - job.createdAt.getTime()) / (1000 * 60 * 60 * 24))} days ago</span>
+                    <span>Posted {Math.floor((currentDate - job.createdAt.getTime()) / (1000 * 60 * 60 * 24))} days ago</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Users className="h-4 w-4" />
@@ -100,7 +101,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                   <div key={milestone.id} className="border border-border rounded-lg p-4 space-y-3">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-3">
-                        <div className={`h-8 w-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                        <div className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 ${
                           milestone.status === 'paid' ? 'bg-green-500/20 text-green-400' :
                           milestone.status === 'approved' ? 'bg-blue-500/20 text-blue-400' :
                           milestone.status === 'submitted' ? 'bg-yellow-500/20 text-yellow-400' :
@@ -144,7 +145,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                           <div className="h-10 w-10 rounded-full bg-linear-to-br from-primary to-accent" />
                           <div>
                             <p className="font-medium">{bid.freelancer}</p>
-                            <p className="text-sm text-muted-foreground">Posted {Math.floor((Date.now() - bid.createdAt.getTime()) / (1000 * 60 * 60 * 24))} days ago</p>
+                            <p className="text-sm text-muted-foreground">Posted {Math.floor((currentDate - bid.createdAt.getTime()) / (1000 * 60 * 60 * 24))} days ago</p>
                           </div>
                         </div>
                         <div className="text-right">
@@ -200,7 +201,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                 <p className="text-sm text-muted-foreground">
                   Connect your wallet to submit a proposal for this job
                 </p>
-                <WalletMultiButton className="!w-full !bg-primary hover:!bg-primary/90 !rounded-lg !h-10" />
+                <WalletMultiButton className="w-full! bg-primary! hover:bg-primary/90! rounded-lg! h-10!" />
                 <button className="w-full px-4 py-2 border border-border rounded-lg hover:bg-accent transition-colors">
                   Submit Proposal
                 </button>

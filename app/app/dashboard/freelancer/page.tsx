@@ -1,10 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { mockJobs, mockBids } from '@/lib/mockData';
 import { Briefcase, DollarSign, Star, TrendingUp, Clock, CheckCircle, ArrowUpRight } from 'lucide-react';
 
 export default function FreelancerDashboard() {
+  const [currentDate] = useState(() => Date.now());
   // Mock freelancer data
   const freelancerAddress = '5hUV...3nK8';
   const myJobs = mockJobs.filter(j => j.freelancer === freelancerAddress);
@@ -152,7 +154,7 @@ export default function FreelancerDashboard() {
                             <Link href={`/jobs/${job.id}`} className="font-semibold hover:text-primary">
                               {job.title}
                             </Link>
-                            <p className="text-sm text-muted-foreground">Submitted {Math.floor((Date.now() - bid.createdAt.getTime()) / (1000 * 60 * 60 * 24))} days ago</p>
+                            <p className="text-sm text-muted-foreground">Submitted {Math.floor((currentDate - bid.createdAt.getTime()) / (1000 * 60 * 60 * 24))} days ago</p>
                           </div>
                           <div className="text-right">
                             <p className="font-semibold">{bid.proposedPrice} SOL</p>

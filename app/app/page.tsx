@@ -173,7 +173,7 @@ export default function Home() {
               Connect your wallet and join the decentralized future of work. No middlemen, no hidden fees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <WalletMultiButton className="!bg-primary hover:!bg-primary/90 !rounded-lg !h-12 !px-8 !text-base" />
+              <WalletMultiButton className="bg-primary! hover:bg-primary/90! rounded-lg! h-12! px-8! text-base!" />
               <Link 
                 href="/jobs"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
