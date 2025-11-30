@@ -42,7 +42,7 @@ export default function ClientDashboard() {
           <div className="bg-card border border-border rounded-xl p-6 space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">Active Jobs</p>
-              <Briefcase className="h-5 w-5 text-purple-400" />
+              <Briefcase className="h-5 w-5 text-primary" />
             </div>
             <p className="text-3xl font-bold">{stats.activeJobs}</p>
             <p className="text-sm text-muted-foreground">In progress</p>
@@ -51,7 +51,7 @@ export default function ClientDashboard() {
           <div className="bg-card border border-border rounded-xl p-6 space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">Total Spent</p>
-              <DollarSign className="h-5 w-5 text-purple-400" />
+              <DollarSign className="h-5 w-5 text-primary" />
             </div>
             <p className="text-3xl font-bold">{stats.totalSpent} SOL</p>
             <p className="text-sm text-muted-foreground">≈ ${(stats.totalSpent * 180).toLocaleString()}</p>
@@ -60,7 +60,7 @@ export default function ClientDashboard() {
           <div className="bg-card border border-border rounded-xl p-6 space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">Total Hires</p>
-              <Users className="h-5 w-5 text-purple-400" />
+              <Users className="h-5 w-5 text-accent" />
             </div>
             <p className="text-3xl font-bold">{stats.totalHires}</p>
             <p className="text-sm text-green-400">+3 this month</p>
@@ -69,7 +69,7 @@ export default function ClientDashboard() {
           <div className="bg-card border border-border rounded-xl p-6 space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">Avg Rating</p>
-              <TrendingUp className="h-5 w-5 text-purple-400" />
+              <TrendingUp className="h-5 w-5 text-accent" />
             </div>
             <p className="text-3xl font-bold">{stats.avgRating} ⭐</p>
             <p className="text-sm text-green-400">Excellent</p>
@@ -104,7 +104,7 @@ export default function ClientDashboard() {
                               <span className={`px-2 py-1 text-xs rounded-full ${
                                 job.status === 'open' ? 'bg-green-500/10 text-green-400' :
                                 job.status === 'in-progress' ? 'bg-blue-500/10 text-blue-400' :
-                                job.status === 'completed' ? 'bg-purple-500/10 text-purple-400' :
+                                job.status === 'completed' ? 'bg-primary/10 text-primary' :
                                 'bg-red-500/10 text-red-400'
                               }`}>
                                 {job.status}
@@ -175,7 +175,7 @@ export default function ClientDashboard() {
               
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="h-10 w-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                  <div className="h-10 w-10 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
                     <CheckCircle className="h-5 w-5 text-green-400" />
                   </div>
                   <div className="flex-1">
@@ -185,7 +185,7 @@ export default function ClientDashboard() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="h-10 w-10 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                  <div className="h-10 w-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
                     <Users className="h-5 w-5 text-blue-400" />
                   </div>
                   <div className="flex-1">
@@ -195,8 +195,8 @@ export default function ClientDashboard() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="h-10 w-10 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                    <Briefcase className="h-5 w-5 text-purple-400" />
+                  <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                    <Briefcase className="h-5 w-5 text-primary" />
                   </div>
                   <div className="flex-1">
                     <p className="font-medium">Job posted successfully</p>
@@ -213,7 +213,7 @@ export default function ClientDashboard() {
             <div className="bg-card border border-border rounded-xl p-6 space-y-4">
               <h3 className="font-semibold">Your Profile</h3>
               <div className="flex items-center gap-3">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+                <div className="h-16 w-16 rounded-full bg-linear-to-br from-primary to-accent" />
                 <div>
                   <p className="font-medium">{clientAddress}</p>
                   <p className="text-sm text-muted-foreground">Client</p>
@@ -235,10 +235,10 @@ export default function ClientDashboard() {
             </div>
 
             {/* Budget Overview */}
-            <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-border rounded-xl p-6 space-y-4">
+            <div className="bg-linear-to-br from-primary/10 to-accent/10 border border-border rounded-xl p-6 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="font-semibold">In Escrow</h3>
-                <DollarSign className="h-5 w-5 text-purple-400" />
+                <DollarSign className="h-5 w-5 text-primary" />
               </div>
               <div>
                 <p className="text-3xl font-bold">8.5 SOL</p>

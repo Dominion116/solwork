@@ -31,7 +31,7 @@ export default function FreelancerDashboard() {
           <div className="bg-card border border-border rounded-xl p-6 space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">Active Jobs</p>
-              <Briefcase className="h-5 w-5 text-purple-400" />
+              <Briefcase className="h-5 w-5 text-primary" />
             </div>
             <p className="text-3xl font-bold">{stats.activeJobs}</p>
             <p className="text-sm text-green-400">In progress</p>
@@ -40,7 +40,7 @@ export default function FreelancerDashboard() {
           <div className="bg-card border border-border rounded-xl p-6 space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">Completed</p>
-              <CheckCircle className="h-5 w-5 text-purple-400" />
+              <CheckCircle className="h-5 w-5 text-accent" />
             </div>
             <p className="text-3xl font-bold">{stats.completedJobs}</p>
             <p className="text-sm text-green-400">+2 this month</p>
@@ -49,7 +49,7 @@ export default function FreelancerDashboard() {
           <div className="bg-card border border-border rounded-xl p-6 space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">Total Earned</p>
-              <DollarSign className="h-5 w-5 text-purple-400" />
+              <DollarSign className="h-5 w-5 text-primary" />
             </div>
             <p className="text-3xl font-bold">{stats.totalEarned} SOL</p>
             <p className="text-sm text-muted-foreground">≈ ${(stats.totalEarned * 180).toLocaleString()}</p>
@@ -58,7 +58,7 @@ export default function FreelancerDashboard() {
           <div className="bg-card border border-border rounded-xl p-6 space-y-2">
             <div className="flex items-center justify-between">
               <p className="text-sm text-muted-foreground">Rating</p>
-              <Star className="h-5 w-5 text-purple-400" />
+              <Star className="h-5 w-5 text-accent" />
             </div>
             <p className="text-3xl font-bold">{stats.rating} ⭐</p>
             <p className="text-sm text-green-400">Excellent</p>
@@ -184,7 +184,7 @@ export default function FreelancerDashboard() {
             <div className="bg-card border border-border rounded-xl p-6 space-y-4">
               <h3 className="font-semibold">Your Profile</h3>
               <div className="flex items-center gap-3">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+                <div className="h-16 w-16 rounded-full bg-linear-to-br from-primary to-accent" />
                 <div>
                   <p className="font-medium">{freelancerAddress}</p>
                   <p className="text-sm text-muted-foreground">Freelancer</p>
@@ -206,7 +206,7 @@ export default function FreelancerDashboard() {
             </div>
 
             {/* Earnings Overview */}
-            <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-border rounded-xl p-6 space-y-4">
+            <div className="bg-linear-to-br from-primary/10 to-accent/10 border border-border rounded-xl p-6 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="font-semibold">This Month</h3>
                 <TrendingUp className="h-5 w-5 text-green-400" />

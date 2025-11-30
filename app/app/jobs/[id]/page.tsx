@@ -47,7 +47,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                     job.status === 'open' ? 'bg-green-500/10 text-green-400' :
                     job.status === 'in-progress' ? 'bg-blue-500/10 text-blue-400' :
-                    job.status === 'completed' ? 'bg-purple-500/10 text-purple-400' :
+                    job.status === 'completed' ? 'bg-primary/10 text-primary' :
                     'bg-red-500/10 text-red-400'
                   }`}>
                     {job.status}
@@ -76,7 +76,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                 {job.skills.map((skill) => (
                   <span 
                     key={skill}
-                    className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full"
+                    className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full"
                   >
                     {skill}
                   </span>
@@ -141,7 +141,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                     <div key={bid.id} className="border border-border rounded-lg p-4 space-y-3">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+                          <div className="h-10 w-10 rounded-full bg-linear-to-br from-primary to-accent" />
                           <div>
                             <p className="font-medium">{bid.freelancer}</p>
                             <p className="text-sm text-muted-foreground">Posted {Math.floor((Date.now() - bid.createdAt.getTime()) / (1000 * 60 * 60 * 24))} days ago</p>
@@ -175,7 +175,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
             <div className="bg-card border border-border rounded-xl p-6 space-y-4">
               <h3 className="font-semibold">Client</h3>
               <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+                <div className="h-12 w-12 rounded-full bg-linear-to-br from-primary to-accent" />
                 <div>
                   <p className="font-medium">{job.client}</p>
                   <p className="text-sm text-muted-foreground">Active since 2024</p>
@@ -195,7 +195,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
 
             {/* Action Card */}
             {job.status === 'open' && (
-              <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-border rounded-xl p-6 space-y-4">
+              <div className="bg-linear-to-br from-primary/10 to-accent/10 border border-border rounded-xl p-6 space-y-4">
                 <h3 className="font-semibold">Interested?</h3>
                 <p className="text-sm text-muted-foreground">
                   Connect your wallet to submit a proposal for this job
@@ -210,7 +210,7 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
             {/* Category */}
             <div className="bg-card border border-border rounded-xl p-6 space-y-4">
               <h3 className="font-semibold">Category</h3>
-              <span className="inline-block px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">
+              <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
                 {job.category}
               </span>
             </div>

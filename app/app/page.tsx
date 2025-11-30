@@ -15,7 +15,7 @@ export default function Home() {
             <div className="space-y-8">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Decentralized freelance
-                <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="block bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                   marketplace on Solana
                 </span>
               </h1>
@@ -39,11 +39,11 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl blur-3xl opacity-20" />
+              <div className="absolute inset-0 bg-linear-to-br from-primary to-accent rounded-3xl blur-3xl opacity-20" />
               <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-purple-400" />
+                  <div className="h-12 w-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                    <Shield className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Secure Escrow</h3>
@@ -51,8 +51,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                    <Zap className="h-6 w-6 text-purple-400" />
+                  <div className="h-12 w-12 rounded-xl bg-primary/20 flex items-center justify-center">
+                    <Zap className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Instant Payments</h3>
@@ -60,8 +60,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                    <Globe className="h-6 w-6 text-purple-400" />
+                  <div className="h-12 w-12 rounded-xl bg-accent/20 flex items-center justify-center">
+                    <Globe className="h-6 w-6 text-accent" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Global Access</h3>
@@ -88,10 +88,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative bg-card border border-border rounded-2xl p-8 space-y-4 h-full">
-                <div className="h-14 w-14 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                  <Shield className="h-7 w-7 text-purple-400" />
+                <div className="h-14 w-14 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <Shield className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold">Trustless Escrow</h3>
                 <p className="text-muted-foreground">
@@ -101,10 +101,10 @@ export default function Home() {
             </div>
 
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative bg-card border border-border rounded-2xl p-8 space-y-4 h-full">
-                <div className="h-14 w-14 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                  <CheckCircle className="h-7 w-7 text-purple-400" />
+                <div className="h-14 w-14 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <CheckCircle className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold">Milestone Payments</h3>
                 <p className="text-muted-foreground">
@@ -114,10 +114,10 @@ export default function Home() {
             </div>
 
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-linear-to-br from-accent/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative bg-card border border-border rounded-2xl p-8 space-y-4 h-full">
-                <div className="h-14 w-14 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                  <Star className="h-7 w-7 text-purple-400" />
+                <div className="h-14 w-14 rounded-xl bg-accent/20 flex items-center justify-center">
+                  <Star className="h-7 w-7 text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold">Transparent Ratings</h3>
                 <p className="text-muted-foreground">
@@ -132,28 +132,28 @@ export default function Home() {
       {/* Stats Section */}
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-purple-500/10 via-card to-pink-500/10 border border-border/50 rounded-3xl p-12">
+          <div className="bg-linear-to-br from-primary/10 via-card to-accent/10 border border-border/50 rounded-3xl p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                   $2.5M+
                 </div>
                 <div className="text-muted-foreground">Total Paid Out</div>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                   1,200+
                 </div>
                 <div className="text-muted-foreground">Active Users</div>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                   850+
                 </div>
                 <div className="text-muted-foreground">Jobs Completed</div>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                   4.8/5
                 </div>
                 <div className="text-muted-foreground">Average Rating</div>

@@ -92,7 +92,7 @@ export default function JobsPage() {
                   {job.skills.slice(0, 4).map((skill) => (
                     <span 
                       key={skill}
-                      className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full"
+                      className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full"
                     >
                       {skill}
                     </span>
