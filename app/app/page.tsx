@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { useAppKit } from '@reown/appkit/react';
 import { Marquee } from "@/components/ui/marquee";
 import FAQ from "@/components/faq";
+import Testimonials from "@/components/testimonials";
 import {
   SolanaLogo,
   PhantomLogo,
@@ -113,6 +114,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <Testimonials />
+
       {/* Features Section */}
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -170,69 +174,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-linear-to-br from-primary/10 via-card to-accent/10 border border-border/50 rounded-3xl p-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-                  $2.5M+
-                </div>
-                <div className="text-muted-foreground">Total Paid Out</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-                  1,200+
-                </div>
-                <div className="text-muted-foreground">Active Users</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-                  850+
-                </div>
-                <div className="text-muted-foreground">Jobs Completed</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-                  4.8/5
-                </div>
-                <div className="text-muted-foreground">Average Rating</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <FAQ />
 
       {/* CTA Section */}
-      <section className="py-24">
+      <section className="py-24 bg-primary">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
               Ready to start working on Solana?
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
               Connect your wallet and join the decentralized future of work. No middlemen, no hidden fees.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Button 
-                variant="secondary" 
                 size="lg"
-                className="rounded-full px-10"
+                className="rounded-full px-10 bg-background text-foreground hover:bg-background/90"
                 onClick={() => open()}
               >
                 Connect Wallet
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Link 
-                href="/jobs"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              <Button
+                variant="outline"
+                size="lg"
+                className="rounded-full px-10 border-white/20 text-white hover:bg-white/10 hover:text-white"
+                asChild
               >
-                Browse available jobs
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+                <Link href="/jobs">
+                  Browse Jobs
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
