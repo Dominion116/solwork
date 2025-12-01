@@ -42,15 +42,16 @@ const nextConfig: NextConfig = {
     // Use IgnorePlugin to completely exclude test files and directories
     config.plugins.push(
       new webpack.IgnorePlugin({
+        resourceRegExp: /\/test\//,
+      }),
+      new webpack.IgnorePlugin({
         resourceRegExp: /\.test\.(js|ts|jsx|tsx)$/,
       }),
       new webpack.IgnorePlugin({
-        resourceRegExp: /^\.\/test$/,
-        contextRegExp: /node_modules/,
+        resourceRegExp: /why-is-node-running/,
       }),
       new webpack.IgnorePlugin({
-        resourceRegExp: /(test|tests|spec|specs)\//,
-        contextRegRegExp: /node_modules/,
+        resourceRegExp: /tap/,
       }),
     );
     
