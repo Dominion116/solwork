@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
     '@walletconnect/logger',
     'pino',
   ],
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     config.externals.push(
       'pino-pretty', 
       'lokijs', 
