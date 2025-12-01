@@ -30,7 +30,11 @@ const nextConfig: NextConfig = {
     '@walletconnect/logger',
     'pino',
   ],
-  webpack: (config) => {
+  // Set environment variable to skip the problematic code
+  env: {
+    SKIP_PROCESS_EXIT_CHECK: 'true',
+  },
+  webpack: (config, { isServer }) => {
     config.externals.push(
       'pino-pretty', 
       'lokijs', 
@@ -55,8 +59,10 @@ const nextConfig: NextConfig = {
       }),
     );
     
+    // Add resolve fallback for the missing module
     config.resolve.fallback = {
       ...config.resolve.fallback,
+      'why-is-node-running': false,
       fs: false,
       net: false,
       tls: false,
@@ -68,6 +74,12 @@ const nextConfig: NextConfig = {
       path: false,
       os: false,
     };
+
+    // Add alias to prevent resolution of the module
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'why-is-node-running': false,
+    };
     
     return config;
   },
@@ -76,6 +88,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-
-
