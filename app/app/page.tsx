@@ -11,12 +11,9 @@ import { Marquee } from "@/components/ui/marquee";
 import {
   SolanaLogo,
   PhantomLogo,
-  MetaplexLogo,
-  MagicEdenLogo,
   SerumLogo,
   RaydiumLogo,
   OrcaLogo,
-  StepFinanceLogo,
 } from "@/components/logos";
 
 export default function Home() {
@@ -79,11 +76,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-center mb-6">
             <Badge variant="secondary" className="rounded-full py-1 border-border">
-              Trusted Partners
+              ✦ Trusted Partners
             </Badge>
           </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+            Powered by the Solana Ecosystem
+          </h2>
           <p className="text-center text-xl font-medium text-foreground/80 mb-14">
-            Powered by the Solana ecosystem trusted by millions worldwide
+            Trusted by millions worldwide
           </p>
 
           <div className="space-y-8">
@@ -93,12 +93,9 @@ export default function Home() {
             >
               <SolanaLogo />
               <PhantomLogo />
-              <MetaplexLogo />
-              <MagicEdenLogo />
               <SerumLogo />
               <RaydiumLogo />
               <OrcaLogo />
-              <StepFinanceLogo />
             </Marquee>
             <Marquee
               pauseOnHover
@@ -107,12 +104,9 @@ export default function Home() {
             >
               <SolanaLogo />
               <PhantomLogo />
-              <MetaplexLogo />
-              <MagicEdenLogo />
               <SerumLogo />
               <RaydiumLogo />
               <OrcaLogo />
-              <StepFinanceLogo />
             </Marquee>
           </div>
         </div>
