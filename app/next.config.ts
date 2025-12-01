@@ -21,23 +21,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Add empty turbopack config to silence the warning
-  turbopack: {},
-  webpack: (config) => {
-    config.externals.push('pino-pretty', 'lokijs', 'encoding');
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-      net: false,
-      tls: false,
-    };
-    // Exclude test files from being bundled
-    config.module.rules.push({
-      test: /node_modules\/.*\/test\/.*/,
-      use: 'null-loader',
-    });
-    return config;
-  },
+  serverExternalPackages: ['pino-pretty', 'lokijs', 'encoding'],
 };
 
 export default nextConfig;
