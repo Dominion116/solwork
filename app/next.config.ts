@@ -21,9 +21,22 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  serverExternalPackages: ['pino-pretty', 'lokijs', 'encoding', 'thread-stream'],
+  serverExternalPackages: [
+    'pino-pretty', 
+    'lokijs', 
+    'encoding', 
+    'thread-stream',
+    '@walletconnect/logger',
+    'pino',
+  ],
   webpack: (config, { isServer }) => {
-    config.externals.push('pino-pretty', 'lokijs', 'encoding');
+    config.externals.push(
+      'pino-pretty', 
+      'lokijs', 
+      'encoding',
+      'thread-stream',
+      'pino'
+    );
     
     // Exclude test files from being bundled
     config.module.rules.push({
@@ -36,15 +49,19 @@ const nextConfig: NextConfig = {
       loader: 'ignore-loader',
     });
     
-    if (!isServer) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-        crypto: false,
-      };
-    }
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      net: false,
+      tls: false,
+      crypto: false,
+      stream: false,
+      http: false,
+      https: false,
+      zlib: false,
+      path: false,
+      os: false,
+    };
     
     return config;
   },
