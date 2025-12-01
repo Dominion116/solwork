@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import webpack from "webpack";
 
 const nextConfig: NextConfig = {
   images: {
@@ -38,27 +39,20 @@ const nextConfig: NextConfig = {
       'pino'
     );
     
-    // Exclude test files and non-JS files from being bundled
-    config.module.rules.push({
-      test: /\.test\.(js|ts|jsx|tsx)$/,
-      loader: 'ignore-loader',
-    });
-    
-    config.module.rules.push({
-      test: /node_modules\/.*\/test\/.*$/,
-      loader: 'ignore-loader',
-    });
-    
-    config.module.rules.push({
-      test: /node_modules\/.*\/(LICENSE|CHANGELOG|README|\.md|\.txt)$/i,
-      loader: 'ignore-loader',
-    });
-    
-    // Ignore specific problematic files
-    config.module.rules.push({
-      test: /node_modules\/(pino|thread-stream)\/.*\/(test|LICENSE|benchmarks?|examples?)\/.*$/,
-      loader: 'ignore-loader',
-    });
+    // Use IgnorePlugin to completely exclude test files and directories
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /\.test\.(js|ts|jsx|tsx)$/,
+      }),
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/test$/,
+        contextRegExp: /node_modules/,
+      }),
+      new webpack.IgnorePlugin({
+        resourceRegExp: /(test|tests|spec|specs)\//,
+        contextRegRegExp: /node_modules/,
+      }),
+    );
     
     config.resolve.fallback = {
       ...config.resolve.fallback,
