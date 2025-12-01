@@ -38,13 +38,13 @@ const faq = [
 
 const FAQ = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-background pb-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center space-y-4 mb-12">
             <div className="flex justify-center mb-6">
               <Badge variant="secondary" className="rounded-full py-1 border-border">
-                ✦ FAQ
+                <span className="text-primary">✦</span> FAQ
               </Badge>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold">

@@ -42,7 +42,7 @@ export default function Home() {
               asChild
             >
               <Link href="/jobs">
-                ✦ Browse Available Jobs <ArrowUpRight className="ml-1 size-4" />
+                <span className="text-primary">✦</span> Browse Available Jobs <ArrowUpRight className="ml-1 size-4" />
               </Link>
             </Badge>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-semibold tracking-tighter">
@@ -78,7 +78,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-center mb-6">
             <Badge variant="secondary" className="rounded-full py-1 border-border">
-              ✦ Trusted Partners
+              <span className="text-primary">✦</span> Trusted Partners
             </Badge>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
@@ -118,12 +118,12 @@ export default function Home() {
       <Testimonials />
 
       {/* Features Section */}
-      <section className="py-24">
+      <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-16">
             <div className="flex justify-center mb-6">
               <Badge variant="secondary" className="rounded-full py-1 border-border">
-                ✦ Features
+                <span className="text-primary">✦</span> Features
               </Badge>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold">
