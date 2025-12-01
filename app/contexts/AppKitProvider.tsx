@@ -30,6 +30,12 @@ createAppKit({
   metadata,
   features: {
     analytics: true,
+  },
+  themeMode: 'dark',
+  themeVariables: {
+    '--w3m-accent': 'hsl(240, 35.48%, 18.24%)',
+    '--wui-color-accent-100': 'hsl(240, 35.48%, 18.24%)',
+    '--wui-color-fg-100': 'hsl(217.5, 26.67%, 94.12%)',
   }
 });
 

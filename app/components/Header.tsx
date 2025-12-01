@@ -1,37 +1,38 @@
 'use client';
 
-import Link from 'next/link';
-import { Briefcase } from 'lucide-react';
+import { Logo } from "@/components/logo";
+import { NavMenu } from "@/components/nav-menu";
+import { NavigationSheet } from "@/components/navigation-sheet";
+import { Button } from "@/components/ui/button";
+import { useAppKit } from '@reown/appkit/react';
 
 export default function Header() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-lg bg-[#2d3142] flex items-center justify-center">
-              <Briefcase className="h-5 w-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-[#e8eaed] tracking-tight">
-              solwork
-            </span>
-          </Link>
-          
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/jobs" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Browse Jobs
-            </Link>
-            <Link href="/dashboard/client" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Post Job
-            </Link>
-            <Link href="/dashboard/freelancer" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Dashboard
-            </Link>
-          </nav>
+  const { open } = useAppKit();
 
-          <appkit-button />
+  return (
+    <nav className="fixed top-6 inset-x-4 h-16 bg-background/80 backdrop-blur-md border border-border/40 max-w-7xl mx-auto rounded-full z-50">
+      <div className="h-full flex items-center justify-between mx-auto px-6">
+        <Logo />
+
+        {/* Desktop Menu */}
+        <NavMenu className="hidden md:block" />
+
+        <div className="flex items-center gap-3">
+          <Button 
+            variant="default"
+            size="default"
+            className="rounded-full font-sans"
+            onClick={() => open()}
+          >
+            Connect Wallet
+          </Button>
+
+          {/* Mobile Menu */}
+          <div className="md:hidden">
+            <NavigationSheet />
+          </div>
         </div>
       </div>
-    </header>
+    </nav>
   );
 }
