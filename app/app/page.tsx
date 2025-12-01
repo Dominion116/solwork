@@ -4,9 +4,13 @@ import Link from 'next/link';
 import { ArrowRight, Shield, CheckCircle, Star, ArrowUpRight } from 'lucide-react';
 import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useAppKit } from '@reown/appkit/react';
 
 export default function Home() {
+  const { open } = useAppKit();
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -28,7 +32,7 @@ export default function Home() {
               asChild
             >
               <Link href="/jobs">
-                Browse Available Jobs <ArrowUpRight className="ml-1 size-4" />
+                ✦ Browse Available Jobs <ArrowUpRight className="ml-1 size-4" />
               </Link>
             </Badge>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:leading-[1.2] font-semibold tracking-tighter">
@@ -47,7 +51,14 @@ export default function Home() {
               >
                 Get Started <ArrowUpRight className="h-5 w-5" />
               </Link>
-              <appkit-button />
+              <Button 
+                variant="secondary" 
+                size="lg"
+                className="rounded-full px-10"
+                onClick={() => open()}
+              >
+                Connect Wallet
+              </Button>
             </div>
           </div>
         </div>
@@ -153,7 +164,14 @@ export default function Home() {
               Connect your wallet and join the decentralized future of work. No middlemen, no hidden fees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <appkit-button />
+              <Button 
+                variant="secondary" 
+                size="lg"
+                className="rounded-full px-10"
+                onClick={() => open()}
+              >
+                Connect Wallet
+              </Button>
               <Link 
                 href="/jobs"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
