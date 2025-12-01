@@ -27,10 +27,9 @@ yarn-error.log*
 Thumbs.db
 
 # Environment
-.env
-.env.local
 
 # Build outputs
 dist/
 build/
 .next/
+config.bat
