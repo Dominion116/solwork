@@ -53,8 +53,7 @@ export default function Home() {
               </Link>
               <Button 
                 variant="secondary" 
-                size="lg"
-                className="rounded-full px-10"
+                className="rounded-full px-10 h-auto py-3.5 text-base font-semibold"
                 onClick={() => open()}
               >
                 Connect Wallet
