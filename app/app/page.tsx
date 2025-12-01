@@ -178,8 +178,17 @@ export default function Home() {
       <FAQ />
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 bg-primary overflow-hidden">
+        <AnimatedGridPattern
+          numSquares={30}
+          maxOpacity={0.08}
+          duration={3}
+          className={cn(
+            "mask-[radial-gradient(600px_circle_at_center,white,transparent)]",
+            "inset-x-0 h-full fill-white/20 stroke-white/20"
+          )}
+        />
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-4xl md:text-5xl font-bold text-white">
               Ready to start working on Solana?
