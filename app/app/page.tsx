@@ -7,6 +7,17 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAppKit } from '@reown/appkit/react';
+import { Marquee } from "@/components/ui/marquee";
+import {
+  SolanaLogo,
+  PhantomLogo,
+  MetaplexLogo,
+  MagicEdenLogo,
+  SerumLogo,
+  RaydiumLogo,
+  OrcaLogo,
+  StepFinanceLogo,
+} from "@/components/logos";
 
 export default function Home() {
   const { open } = useAppKit();
@@ -53,13 +64,56 @@ export default function Home() {
               </Link>
               <Button 
                 variant="secondary" 
-                size="lg"
-                className="rounded-full px-10"
+                className="rounded-full px-10 h-auto py-3.5 text-base font-semibold"
                 onClick={() => open()}
               >
                 Connect Wallet
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Logo Cloud */}
+      <section className="py-16 px-6 bg-background/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-center mb-6">
+            <Badge variant="secondary" className="rounded-full py-1 border-border">
+              Trusted Partners
+            </Badge>
+          </div>
+          <p className="text-center text-xl font-medium text-foreground/80 mb-14">
+            Powered by the Solana ecosystem trusted by millions worldwide
+          </p>
+
+          <div className="space-y-8">
+            <Marquee
+              pauseOnHover
+              className="[--duration:40s] [--gap:3rem]"
+            >
+              <SolanaLogo />
+              <PhantomLogo />
+              <MetaplexLogo />
+              <MagicEdenLogo />
+              <SerumLogo />
+              <RaydiumLogo />
+              <OrcaLogo />
+              <StepFinanceLogo />
+            </Marquee>
+            <Marquee
+              pauseOnHover
+              reverse
+              className="[--duration:40s] [--gap:3rem]"
+            >
+              <SolanaLogo />
+              <PhantomLogo />
+              <MetaplexLogo />
+              <MagicEdenLogo />
+              <SerumLogo />
+              <RaydiumLogo />
+              <OrcaLogo />
+              <StepFinanceLogo />
+            </Marquee>
           </div>
         </div>
       </section>
