@@ -25,6 +25,17 @@ const nextConfig: NextConfig = {
   webpack: (config, { isServer }) => {
     config.externals.push('pino-pretty', 'lokijs', 'encoding');
     
+    // Exclude test files from being bundled
+    config.module.rules.push({
+      test: /\.test\.(js|ts|jsx|tsx)$/,
+      loader: 'ignore-loader',
+    });
+    
+    config.module.rules.push({
+      test: /node_modules\/.*\/test\/.*\.(js|ts|jsx|tsx)$/,
+      loader: 'ignore-loader',
+    });
+    
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -42,5 +53,6 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
 
 
