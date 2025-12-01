@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "@/components/ui/marquee";
@@ -67,7 +67,7 @@ const Testimonials = () => (
     <div className="h-full w-full">
       <div className="flex justify-center mb-6">
         <Badge variant="secondary" className="rounded-full py-1 border-border">
-          ✦ Testimonials
+          <span className="text-primary">✦</span> Testimonials
         </Badge>
       </div>
       <h2 className="text-3xl md:text-4xl font-bold text-center tracking-tight px-6">
@@ -99,6 +99,7 @@ const TestimonialList = () =>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Avatar className="size-10">
+            <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
             <AvatarFallback className="text-xl font-medium bg-primary text-primary-foreground">
               {testimonial.name.charAt(0)}
             </AvatarFallback>
