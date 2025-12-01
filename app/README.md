@@ -26,15 +26,17 @@ A trustless, blockchain-powered platform connecting clients and freelancers on t
 ## Tech Stack
 
 ### Frontend
-- **Next.js 16** - React framework with App Router
+- **Next.js 16** - React framework with App Router and Turbopack
 - **TypeScript** - Type-safe development
-- **Tailwind CSS v4** - Modern styling with dark theme
+- **Tailwind CSS v4** - Modern styling with cyberpunk theme
 - **shadcn/ui** - Beautiful, accessible components
 - **Lucide Icons** - Clean, consistent iconography
+- **Reown AppKit** - Modern wallet connection with Solana support
 
 ### Blockchain
-- **Solana** - Fast, low-cost transactions
-- **@solana/wallet-adapter** - Seamless wallet integration
+- **Solana** - Fast, low-cost transactions on Devnet
+- **@solana/web3.js** - Solana blockchain interaction
+- **Reown AppKit Solana Adapter** - Seamless multi-wallet support
 - **Anchor Framework** - Smart contract development (coming soon)
 
 ## Getting Started
@@ -48,20 +50,30 @@ A trustless, blockchain-powered platform connecting clients and freelancers on t
 
 1. Install dependencies:
 ```bash
-npm install --no-optional
+npm install
 ```
 
-2. Run the development server:
+2. Set up environment variables:
+
+Create a `.env.local` file in the root directory:
 ```bash
-npx next dev
+NEXT_PUBLIC_REOWN_PROJECT_ID=your_reown_project_id
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
+Get your project ID from [Reown Cloud](https://cloud.reown.com) (free account required).
+
+3. Run the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ### Wallet Connection
-- Click "Connect Wallet" in the header
-- Select your preferred Solana wallet
-- Approve the connection
+- Click the wallet button in the header
+- Choose from Phantom, Solflare, or other supported Solana wallets
+- Approve the connection in your wallet
+- Connected to Solana Devnet by default
 - Start browsing jobs or posting projects!
 
 ## Project Structure
@@ -79,10 +91,12 @@ app/
 │       ├── freelancer/      # Freelancer dashboard
 │       └── client/          # Client dashboard
 ├── components/              # React components
-│   ├── Header.tsx           # Navigation header
+│   ├── Header.tsx           # Navigation header with wallet button
 │   └── Footer.tsx           # Site footer
 ├── contexts/                # React contexts
-│   └── WalletContextProvider.tsx  # Solana wallet setup
+│   └── AppKitProvider.tsx   # Reown AppKit + Solana wallet setup
+├── types/                   # TypeScript declarations
+│   └── appkit.d.ts          # AppKit web component types
 └── lib/                     # Utilities and data
     └── mockData.ts          # Mock data for development
 ```
@@ -124,18 +138,21 @@ app/
 
 ## Theme
 
-The app uses a modern dark theme with purple accents:
-- Background: `#1A1F2E` (dark blue-gray)
-- Cards: `#232936` (slightly lighter)
-- Primary: `#A855F7` (purple)
-- Accent: `#EC4899` (pink)
+The app uses a modern cyberpunk dark theme:
+- Background: `hsl(240 41.46% 8.04%)` (dark navy)
+- Primary: `hsl(312.94 100% 50%)` (magenta #FF00FF)
+- Accent: `hsl(168 100% 50%)` (cyan #00FFAA)
+- Fonts: Outfit (sans-serif), Fira Code (monospace)
+- All buttons styled as rounded pills with shadow effects
 
 ## Development Notes
 
 - Currently using mock data for development
-- Wallet integration is functional (Devnet)
-- Smart contracts are under development in `/programs/solwork`
+- Wallet integration powered by Reown AppKit
+- Connected to Solana Devnet
+- Smart contracts under development in `/programs/solwork`
 - All pages are fully responsive and mobile-friendly
+- Zero compile errors, production-ready frontend
 
 ---
 

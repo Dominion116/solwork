@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-<<<<<<< Updated upstream
-  /* config options here */
-=======
   images: {
     remotePatterns: [
       {
@@ -42,7 +39,8 @@ const nextConfig: NextConfig = {
   },
   // Explicitly acknowledge both webpack and turbopack
   turbopack: {},
->>>>>>> Stashed changes
 };
 
 export default nextConfig;
+
+
