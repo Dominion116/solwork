@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAppKit } from '@reown/appkit/react';
 import { Marquee } from "@/components/ui/marquee";
+import FAQ from "@/components/faq";
 import {
   SolanaLogo,
   PhantomLogo,
@@ -116,6 +117,11 @@ export default function Home() {
       <section className="py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-16">
+            <div className="flex justify-center mb-6">
+              <Badge variant="secondary" className="rounded-full py-1 border-border">
+                ✦ Features
+              </Badge>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold">
               Why choose SolWork?
             </h2>
@@ -124,41 +130,38 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group relative">
-              <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative bg-card border border-border rounded-2xl p-8 space-y-4 h-full">
-                <div className="h-14 w-14 rounded-xl bg-primary/20 flex items-center justify-center">
-                  <Shield className="h-7 w-7 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="group relative overflow-hidden">
+              <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 space-y-3 h-full transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center ring-1 ring-primary/20">
+                  <Shield className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold">Trustless Escrow</h3>
-                <p className="text-muted-foreground">
-                  Smart contracts hold funds securely. Payments release only when milestones are approved, protecting both parties.
+                <h3 className="text-lg font-semibold">Trustless Escrow</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Smart contracts hold funds securely. Payments release only when milestones are approved.
                 </p>
               </div>
             </div>
 
-            <div className="group relative">
-              <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative bg-card border border-border rounded-2xl p-8 space-y-4 h-full">
-                <div className="h-14 w-14 rounded-xl bg-primary/20 flex items-center justify-center">
-                  <CheckCircle className="h-7 w-7 text-primary" />
+            <div className="group relative overflow-hidden">
+              <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 space-y-3 h-full transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center ring-1 ring-primary/20">
+                  <CheckCircle className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold">Milestone Payments</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-lg font-semibold">Milestone Payments</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   Break projects into stages. Pay as you go, ensuring quality delivery at every step.
                 </p>
               </div>
             </div>
 
-            <div className="group relative">
-              <div className="absolute inset-0 bg-linear-to-br from-accent/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative bg-card border border-border rounded-2xl p-8 space-y-4 h-full">
-                <div className="h-14 w-14 rounded-xl bg-accent/20 flex items-center justify-center">
-                  <Star className="h-7 w-7 text-accent" />
+            <div className="group relative overflow-hidden">
+              <div className="relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 space-y-3 h-full transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5">
+                <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center ring-1 ring-accent/20">
+                  <Star className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-xl font-semibold">Transparent Ratings</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-lg font-semibold">Transparent Ratings</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   On-chain reviews and ratings build reputation. Find trusted partners with verified track records.
                 </p>
               </div>
@@ -200,6 +203,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* CTA Section */}
       <section className="py-24">
