@@ -1,8 +1,30 @@
 {
+  "name": "solwork",
+  "version": "1.0.0",
+  "description": "Decentralized freelance marketplace on Solana with smart contract escrow, milestone payments, and on-chain reputation",
+  "author": "Dominion116",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dominion116/solwork.git"
+  },
+  "keywords": [
+    "solana",
+    "blockchain",
+    "freelance",
+    "marketplace",
+    "escrow",
+    "web3",
+    "anchor",
+    "smart-contract",
+    "defi"
+  ],
   "scripts": {
     "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
-    "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check"
+    "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
+    "build": "anchor build",
+    "test": "anchor test",
+    "deploy:devnet": "anchor deploy --provider.cluster devnet"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.32.1"
