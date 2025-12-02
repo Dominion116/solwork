@@ -17,6 +17,17 @@ pub mod solwork {
         require!(milestones.len() > 0 && milestones.len() <= 10, ErrorCode::InvalidMilestoneCount);
         require!(total_amount > 0, ErrorCode::InvalidAmount);
 
+        // Transfer funds to escrow first
+        let cpi_context = CpiContext::new(
+            ctx.accounts.system_program.to_account_info(),
+            system_program::Transfer {
+                from: ctx.accounts.client.to_account_info(),
+                to: ctx.accounts.job.to_account_info(),
+            },
+        );
+        system_program::transfer(cpi_context, total_amount)?;
+
+        // Now initialize job data
         let job = &mut ctx.accounts.job;
         job.client = ctx.accounts.client.key();
         job.freelancer = Pubkey::default();
@@ -33,16 +44,6 @@ pub mod solwork {
             approved_at: 0,
         }).collect();
         job.bump = ctx.bumps.job;
-
-        // Transfer funds to escrow
-        let cpi_context = CpiContext::new(
-            ctx.accounts.system_program.to_account_info(),
-            system_program::Transfer {
-                from: ctx.accounts.client.to_account_info(),
-                to: ctx.accounts.job.to_account_info(),
-            },
-        );
-        system_program::transfer(cpi_context, total_amount)?;
 
         msg!("Job created: {}", job.key());
         Ok(())
