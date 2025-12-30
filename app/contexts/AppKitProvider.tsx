@@ -42,7 +42,7 @@ if (projectId && projectId.length > 0) {
         '--w3m-accent': 'hsl(240, 35.48%, 18.24%)',
         '--wui-color-accent-100': 'hsl(240, 35.48%, 18.24%)',
         '--wui-color-fg-100': 'hsl(217.5, 26.67%, 94.12%)',
-      }
+      } as unknown as Record<string, string>
     });
     
     console.log('[AppKit] Successfully initialized');
