@@ -84,7 +84,9 @@ const nextConfig: NextConfig = {
     return config;
   },
   // Explicitly acknowledge both webpack and turbopack
-  turbopack: {},
+  turbopack: {
+    root: '.',
+  },
 };
 
 export default nextConfig;
