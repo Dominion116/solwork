@@ -85,7 +85,8 @@ const nextConfig: NextConfig = {
   },
   // Explicitly acknowledge both webpack and turbopack
   turbopack: {
-    root: '.',
+    // Use absolute path for turbopack root to avoid root inference issues
+    root: '/Users/mac/solwork/app',
   },
 };
 
