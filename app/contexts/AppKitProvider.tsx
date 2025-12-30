@@ -24,7 +24,7 @@ if (projectId && projectId.length > 0) {
     const metadata = {
       name: 'SolWork',
       description: 'Decentralized Freelance Marketplace on Solana',
-      url: 'https://solwork.app',
+      url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://solwork.app',
       icons: ['https://solwork.app/icon.png']
     };
 
@@ -34,8 +34,9 @@ if (projectId && projectId.length > 0) {
       networks: [solana, solanaTestnet, solanaDevnet],
       defaultNetwork: solanaDevnet,
       metadata,
+      // Disable analytics in development to avoid remote config calls
       features: {
-        analytics: true,
+        analytics: process.env.NODE_ENV === 'production',
       },
       themeMode: 'dark',
       themeVariables: {
