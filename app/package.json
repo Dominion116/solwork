@@ -18,7 +18,6 @@
     "@radix-ui/react-visually-hidden": "^1.1.3",
     "@reown/appkit": "^1.8.15",
     "@reown/appkit-adapter-solana": "^1.8.14",
-    "@reown/appkit-adapter-wagmi": "^1.8.15",
     "@solana/wallet-adapter-react": "^0.15.39",
     "@solana/wallet-adapter-react-ui": "^0.9.39",
     "@solana/wallet-adapter-wallets": "^0.19.37",
@@ -32,9 +31,7 @@
     "radix-ui": "^1.4.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "tailwind-merge": "^3.4.0",
-    "viem": "^2.43.3",
-    "wagmi": "^3.1.3"
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
