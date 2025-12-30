@@ -7,10 +7,14 @@ import { solana, solanaTestnet, solanaDevnet } from '@reown/appkit/networks';
 import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
 
 // Get projectId from https://cloud.reown.com
-const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID || 'YOUR_PROJECT_ID';
+const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID || '';
+
+if (!projectId) {
+  console.warn('NEXT_PUBLIC_REOWN_PROJECT_ID is not set. Please add it to your .env.local file.');
+}
 
 // Set up the Solana Adapter
-const solanaWeb3JsAdapter = new SolanaAdapter({
+const solanaAdapter = new SolanaAdapter({
   wallets: [new PhantomWalletAdapter(), new SolflareWalletAdapter()]
 });
 
@@ -23,7 +27,7 @@ const metadata = {
 };
 
 createAppKit({
-  adapters: [solanaWeb3JsAdapter],
+  adapters: [solanaAdapter],
   projectId,
   networks: [solana, solanaTestnet, solanaDevnet],
   defaultNetwork: solanaDevnet,
