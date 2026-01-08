@@ -7,17 +7,25 @@ import { SolanaAdapter } from '@reown/appkit-adapter-solana/react';
 import { solana, solanaTestnet, solanaDevnet } from '@reown/appkit/networks';
 import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
 
-const PROJECT_ID = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID?.trim();
 
 export function AppKitProvider({ children }: { children: ReactNode }) {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
-    if (!PROJECT_ID) {
-      console.warn('[AppKit] NEXT_PUBLIC_REOWN_PROJECT_ID is not configured. Skipping AppKit initialization.');
+    // Avoid re-initialization in development
+    if (initialized && (window as any).appkit) {
+      return;
+    }
+
+    const PROJECT_ID = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID?.trim();
+    
+    if (!PROJECT_ID || PROJECT_ID === 'YOUR_PROJECT_ID' || PROJECT_ID === '') {
+      console.warn('[AppKit] NEXT_PUBLIC_REOWN_PROJECT_ID is not properly configured. Skipping AppKit initialization.');
       setInitialized(true);
       return;
     }
+
+    console.log('[AppKit] Initializing with Project ID:', PROJECT_ID.substring(0, 4) + '...');
 
     try {
       const solanaAdapter = new SolanaAdapter({
