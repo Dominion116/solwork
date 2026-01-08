@@ -6,8 +6,9 @@ import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useAppKit } from '@reown/appkit/react';
 import { Marquee } from "@/components/ui/marquee";
+import { useWallet } from '@solana/wallet-adapter-react';
+import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import FAQ from "@/components/faq";
 import Testimonials from "@/components/testimonials";
 import {
@@ -19,7 +20,12 @@ import {
 } from "@/components/logos";
 
 export default function Home() {
-  const { open } = useAppKit();
+  const { setVisible } = useWalletModal();
+  const { connected } = useWallet();
+
+  const handleConnect = () => {
+    setVisible(true);
+  };
 
   return (
     <div className="min-h-screen">
@@ -64,9 +70,9 @@ export default function Home() {
               <Button 
                 variant="secondary" 
                 className="rounded-full px-10 h-auto py-3.5 text-base font-semibold"
-                onClick={() => open()}
+                onClick={handleConnect}
               >
-                Connect Wallet
+                {connected ? 'Wallet Connected' : 'Connect Wallet'}
               </Button>
             </div>
           </div>
@@ -200,9 +206,9 @@ export default function Home() {
               <Button 
                 size="lg"
                 className="rounded-full px-10 bg-background text-foreground hover:bg-background/90"
-                onClick={() => open()}
+                onClick={handleConnect}
               >
-                Connect Wallet
+                {connected ? 'Wallet Connected' : 'Connect Wallet'}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button

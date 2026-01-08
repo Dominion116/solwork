@@ -170,14 +170,6 @@
   }
 }
 
-/* Override Reown AppKit CSS variables to match secondary button style */
-appkit-button {
-  --w3m-accent: hsl(240, 35.48%, 18.24%) !important;
-  --wui-color-accent-100: hsl(240, 35.48%, 18.24%) !important;
-  --wui-color-fg-100: hsl(217.5, 26.67%, 94.12%) !important;
-  --w3m-border-radius-master: 9999px !important;
-}
-
 /* Marquee animations */
 @keyframes marquee {
   from {

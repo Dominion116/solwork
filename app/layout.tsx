@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AppKitProvider } from "@/contexts/AppKitProvider";
+import { WalletContextProvider } from "@/contexts/WalletContextProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -25,13 +25,13 @@ export default function RootLayout({
       <body
         className="antialiased min-h-screen flex flex-col font-sans"
       >
-        <AppKitProvider>
+        <WalletContextProvider>
           <Header />
           <main className="flex-1">
             {children}
           </main>
           <Footer />
-        </AppKitProvider>
+        </WalletContextProvider>
       </body>
     </html>
   );

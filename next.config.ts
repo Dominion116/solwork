@@ -22,11 +22,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  transpilePackages: [
-    '@reown/appkit',
-    '@reown/appkit-adapter-solana',
-    '@walletconnect/logger',
-  ],
   serverExternalPackages: [
     'pino-pretty', 
     'lokijs', 

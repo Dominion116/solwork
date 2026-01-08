@@ -31,12 +31,12 @@ A trustless, blockchain-powered platform connecting clients and freelancers on t
 - **Tailwind CSS v4** - Modern styling with cyberpunk theme
 - **shadcn/ui** - Beautiful, accessible components
 - **Lucide Icons** - Clean, consistent iconography
-- **Reown AppKit** - Modern wallet connection with Solana support
+- **Solana Wallet Adapter** - Standard wallet connection for Solana apps
 
 ### Blockchain
 - **Solana** - Fast, low-cost transactions on Devnet
 - **@solana/web3.js** - Solana blockchain interaction
-- **Reown AppKit Solana Adapter** - Seamless multi-wallet support
+- **Solana Wallet Adapter** - Seamless multi-wallet support for Phantom, Solflare, etc.
 - **Anchor Framework** - Smart contract development (coming soon)
 
 ## Getting Started
@@ -53,14 +53,7 @@ A trustless, blockchain-powered platform connecting clients and freelancers on t
 npm install
 ```
 
-2. Set up environment variables:
-
-Create a `.env.local` file in the root directory:
-```bash
-NEXT_PUBLIC_REOWN_PROJECT_ID=your_reown_project_id
-```
-
-Get your project ID from [Reown Cloud](https://cloud.reown.com) (free account required).
+No environment variables are required for basic wallet connection anymore.
 
 3. Run the development server:
 ```bash
@@ -94,9 +87,8 @@ app/
 │   ├── Header.tsx           # Navigation header with wallet button
 │   └── Footer.tsx           # Site footer
 ├── contexts/                # React contexts
-│   └── AppKitProvider.tsx   # Reown AppKit + Solana wallet setup
-├── types/                   # TypeScript declarations
-│   └── appkit.d.ts          # AppKit web component types
+│   └── WalletContextProvider.tsx   # Standard Solana wallet setup
+
 └── lib/                     # Utilities and data
     └── mockData.ts          # Mock data for development
 ```
@@ -148,7 +140,7 @@ The app uses a modern cyberpunk dark theme:
 ## Development Notes
 
 - Currently using mock data for development
-- Wallet integration powered by Reown AppKit
+- Wallet integration powered by Solana Wallet Adapter
 - Connected to Solana Devnet
 - Smart contracts under development in `/programs/solwork`
 - All pages are fully responsive and mobile-friendly

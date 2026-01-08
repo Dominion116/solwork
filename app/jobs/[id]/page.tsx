@@ -3,13 +3,24 @@
 import { use, useState } from 'react';
 import Link from 'next/link';
 import { mockJobs, mockBids } from '@/lib/mockData';
-import { ArrowLeft, Clock, Users, CheckCircle, Calendar } from 'lucide-react';
+import { ArrowLeft, Clock, Users, CheckCircle, Calendar, ArrowUpRight } from 'lucide-react';
+import { useWallet } from '@solana/wallet-adapter-react';
+import { useWalletModal } from '@solana/wallet-adapter-react-ui';
+import { Button } from '@/components/ui/button';
+import { ConnectWalletButton } from '@/components/ConnectWalletButton';
 
 export default function JobDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const [currentDate] = useState(() => Date.now());
   const job = mockJobs.find(j => j.id === id);
   const jobBids = mockBids.filter(b => b.jobId === id);
+
+  const { setVisible } = useWalletModal();
+  const { connected } = useWallet();
+
+  const handleConnect = () => {
+    setVisible(true);
+  };
 
   if (!job) {
     return (
@@ -200,10 +211,16 @@ export default function JobDetailPage({ params }: { params: Promise<{ id: string
                 <p className="text-sm text-muted-foreground">
                   Connect your wallet to submit a proposal for this job
                 </p>
-                <appkit-button />
-                <button className="w-full px-6 py-2.5 border-2 border-primary/30 rounded-full hover:bg-primary/10 transition-colors font-medium">
-                  Submit Proposal
-                </button>
+                <div className="pt-2">
+                  <ConnectWalletButton />
+                </div>
+                <Button 
+                  className="w-full rounded-full h-auto py-3 font-semibold"
+                  onClick={!connected ? handleConnect : undefined}
+                >
+                  {connected ? 'Submit Proposal' : 'Connect to Submit'}
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Button>
               </div>
             )}
 
