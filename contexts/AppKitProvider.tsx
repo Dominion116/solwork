@@ -9,64 +9,61 @@ import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adap
 
 
 export function AppKitProvider({ children }: { children: ReactNode }) {
-  const [initialized, setInitialized] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    // Avoid re-initialization in development
-    if (initialized && (window as any).appkit) {
-      return;
-    }
+    if (typeof window === 'undefined') return;
 
-    const PROJECT_ID = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID?.trim();
+    const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID?.trim();
     
-    if (!PROJECT_ID || PROJECT_ID === 'YOUR_PROJECT_ID' || PROJECT_ID === '') {
-      console.warn('[AppKit] NEXT_PUBLIC_REOWN_PROJECT_ID is not properly configured. Skipping AppKit initialization.');
-      setInitialized(true);
+    console.log('--- APP KIT STARTUP ---');
+    console.log('Project ID Length:', projectId?.length || 0);
+    console.log('Project ID Prefix:', projectId ? projectId.substring(0, 4) : 'NONE');
+
+    if (!projectId || projectId === 'YOUR_PROJECT_ID') {
+      console.error('[AppKit] Error: NEXT_PUBLIC_REOWN_PROJECT_ID is missing from .env.local');
+      setReady(true);
       return;
     }
 
-    console.log('[AppKit] Initializing with Project ID:', PROJECT_ID.substring(0, 4) + '...');
+    if (!(window as any)._appkitInitialized) {
+      try {
+        const solanaAdapter = new SolanaAdapter({
+          wallets: [new PhantomWalletAdapter(), new SolflareWalletAdapter()]
+        });
 
-    try {
-      const solanaAdapter = new SolanaAdapter({
-        wallets: [new PhantomWalletAdapter(), new SolflareWalletAdapter()]
-      });
+        const metadata = {
+          name: 'SolWork',
+          description: 'Decentralized Freelance Marketplace on Solana',
+          url: 'https://solwork.app',
+          icons: ['https://solwork.app/icon.png']
+        };
 
-      const metadata = {
-        name: 'SolWork',
-        description: 'Decentralized Freelance Marketplace on Solana',
-        url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://solwork.app',
-        icons: ['https://solwork.app/icon.png']
-      };
+        createAppKit({
+          adapters: [solanaAdapter],
+          networks: [solana, solanaTestnet, solanaDevnet],
+          projectId: projectId!,
+          metadata,
+          features: {
+            analytics: false,
+            email: false,
+            socials: [],
+          },
+          themeMode: 'dark',
+          defaultNetwork: solanaDevnet, // Explicitly set default network
+        });
 
-      createAppKit({
-        adapters: [solanaAdapter],
-        projectId: PROJECT_ID,
-        networks: [solana, solanaTestnet, solanaDevnet],
-        defaultNetwork: solanaDevnet,
-        metadata,
-        features: {
-          analytics: process.env.NODE_ENV === 'production',
-        },
-        themeMode: 'dark',
-        themeVariables: {
-          '--w3m-accent': 'hsl(240, 35.48%, 18.24%)',
-          '--wui-color-accent-100': 'hsl(240, 35.48%, 18.24%)',
-          '--wui-color-fg-100': 'hsl(217.5, 26.67%, 94.12%)',
-        } as unknown as Record<string, string>
-      });
-
-      // Mark initialized so children can safely call useAppKit
-      setInitialized(true);
-    } catch (err) {
-      console.error('[AppKit] Initialization failed:', err);
-      // allow app to continue; children may handle missing AppKit gracefully
-      setInitialized(true);
+        (window as any)._appkitInitialized = true;
+        console.log('[AppKit] CreateAppKit call finished for Solana');
+      } catch (err) {
+        console.error('[AppKit] Initialization failed:', err);
+      }
     }
+
+    setReady(true);
   }, []);
 
-  // While initializing, don't render children to avoid useAppKit() usage before createAppKit
-  if (!initialized) return null;
+  if (!ready) return null;
 
   return <>{children}</>;
 }
