@@ -22,12 +22,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  transpilePackages: [
+    '@reown/appkit',
+    '@reown/appkit-adapter-solana',
+    '@walletconnect/logger',
+  ],
   serverExternalPackages: [
     'pino-pretty', 
     'lokijs', 
     'encoding', 
-    'thread-stream',
-    '@walletconnect/logger',
     'pino',
   ],
   // Set environment variable to skip the problematic code
@@ -39,7 +42,6 @@ const nextConfig: NextConfig = {
       'pino-pretty', 
       'lokijs', 
       'encoding',
-      'thread-stream',
       'pino'
     );
     
