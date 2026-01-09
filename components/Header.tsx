@@ -5,7 +5,6 @@ import { NavMenu } from "@/components/nav-menu";
 import { NavigationSheet } from "@/components/navigation-sheet";
 import { Button } from "@/components/ui/button";
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-import '@solana/wallet-adapter-react-ui/styles.css';
 
 export default function Header() {
 
@@ -18,7 +17,9 @@ export default function Header() {
         <NavMenu className="hidden md:block" />
 
         <div className="flex items-center gap-3">
-          <WalletMultiButton className="wallet-adapter-button-override" />
+          <div id="primary-wallet-button">
+            <WalletMultiButton className="wallet-adapter-button-override" />
+          </div>
 
           {/* Mobile Menu */}
           <div className="md:hidden">

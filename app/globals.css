@@ -211,16 +211,18 @@
 }
 
 
-.wallet-adapter-button-override {
+/* Wallet Adapter Button - Maximum Specificity Overrides */
+#primary-wallet-button .wallet-adapter-button,
+#primary-wallet-button .wallet-adapter-button-trigger,
+.wallet-adapter-button.wallet-adapter-button-override {
   background-color: var(--primary) !important;
   color: var(--primary-foreground) !important;
   font-family: var(--font-sans) !important;
-  font-size: 0.875rem !important; /* text-sm */
-  font-weight: 600 !important; /* font-semibold */
-  height: 2.5rem !important; /* h-10 to match nav items */
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
-  border-radius: 9999px !important; /* rounded-full */
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  height: 2.5rem !important;
+  padding: 0 1.5rem !important;
+  border-radius: 9999px !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -230,20 +232,28 @@
   border: none !important;
   cursor: pointer !important;
   box-shadow: 0 4px 14px 0 color-mix(in srgb, var(--primary), transparent 60%) !important;
+  line-height: normal !important;
 }
 
-.wallet-adapter-button-override:hover {
+#primary-wallet-button .wallet-adapter-button:hover,
+.wallet-adapter-button.wallet-adapter-button-override:hover {
   background-color: color-mix(in srgb, var(--primary), transparent 15%) !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.23) !important;
 }
 
-.wallet-adapter-button-override:active {
+#primary-wallet-button .wallet-adapter-button:active,
+.wallet-adapter-button.wallet-adapter-button-override:active {
   transform: translateY(0) !important;
 }
 
-.wallet-adapter-button-override .wallet-adapter-button-start-icon {
+#primary-wallet-button .wallet-adapter-button-start-icon {
   width: 1.25rem !important;
   height: 1.25rem !important;
   margin-right: 0.5rem !important;
+}
+
+/* Ensure the wrapper doesn't interfere */
+.wallet-adapter-dropdown {
+  display: inline-block !important;
 }
